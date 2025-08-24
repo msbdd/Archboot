@@ -65,6 +65,7 @@ _task() {
         done
     fi
     if [[ "${1}" == check ]]; then
+        modprobe loop
         if ! [[ -f "/mnt/efi/boot/initrd-${_ARCH}.img" ]] ; then
             if ! mount /mnt/cdrom/efi.img /mnt/efi &>"${_NO_LOG}"; then
                 _clear
